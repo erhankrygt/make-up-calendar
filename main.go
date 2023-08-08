@@ -26,7 +26,12 @@ func main() {
 
 	http.Handle("/", r)
 
-	err := http.ListenAndServe(":9000", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal("Server couldn't start: ", err)
 	}
