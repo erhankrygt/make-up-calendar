@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue.js Örnek</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{ pageTitle }}</h1>
+    <ul>
+        <li v-for="item in apiData.Data" :key="item.ID">{{ item.Name }}</li>
+    </ul>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            pageTitle: 'API Verileri',
+            apiData: []
+        },
+        mounted() {
+            const apiUrl = 'https://mt-api.up.railway.app/api/categories';
+            const headers = {
+                'X-API-KEY': 'd82cacae-df06-4ba7-9787-f0b76d524ce2'
+            };
+
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: headers
+            })
+                .then(response => response.json())
+                .then(data => this.apiData = data)
+                .catch(error => console.error('API çağrısı sırasında hata oluştu:', error));
+        }
+    });
+</script>
+</body>
+</html>
