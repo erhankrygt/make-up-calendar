@@ -6,10 +6,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
+	"strings"
 )
 
 type Client interface {
-	Send(ctx context.Context, messages []Message) bool
+	Send(ctx context.Context, text string) bool
 }
 
 type client struct {
@@ -41,7 +43,22 @@ type request struct {
 	Messages []Message `json:"messages"`
 }
 
-func (c client) Send(_ context.Context, messages []Message) bool {
+func (c client) Send(_ context.Context, text string) bool {
+	p := os.Getenv("SMS_PHONE_LIST")
+	if p == "" {
+		return false
+	}
+
+	var messages []Message
+
+	phoneNumbers := strings.Split(p, ",")
+	for _, phoneNumber := range phoneNumbers {
+		messages = append(messages, Message{
+			PhoneNumber: phoneNumber,
+			Text:        text,
+		})
+	}
+
 	r := request{
 		client:   c,
 		Messages: messages,
