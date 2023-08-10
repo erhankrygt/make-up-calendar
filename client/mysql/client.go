@@ -35,6 +35,7 @@ type Appointment struct {
 	PreferTimePeriodInDay string
 	TransactionID         string
 	IsView                bool
+	CreatedAt             *time.Time
 }
 
 type Client interface {
@@ -121,7 +122,7 @@ func (c client) CreateAppointment(ctx context.Context, makeUpArtistId int, first
 
 	defer db.Close()
 
-	query := `INSERT INTO appointments (makeup_artist_id, first_name, last_name, phone_number, email, district, due_date, message, prefer_time_period_in_day,transaction_id,is_view) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+	query := `INSERT INTO appointments (makeup_artist_id, first_name, last_name, phone_number, email, district, due_date, message, prefer_time_period_in_day,transaction_id,is_view,created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
 	args := []interface{}{
 		makeUpArtistId,
@@ -135,6 +136,7 @@ func (c client) CreateAppointment(ctx context.Context, makeUpArtistId int, first
 		preferTimePeriodInDay,
 		transactionId,
 		false,
+		time.Now(),
 	}
 
 	_, err = db.ExecContext(ctx, query, args...)
@@ -168,7 +170,8 @@ func (c client) GetAppointment(_ context.Context, transactionId string) (*Appoin
 		&appointment.Message,
 		&appointment.PreferTimePeriodInDay,
 		&appointment.TransactionID,
-		&appointment.IsView)
+		&appointment.IsView,
+		&appointment.CreatedAt)
 
 	if err != nil {
 		return nil, err

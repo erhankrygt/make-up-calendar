@@ -155,7 +155,8 @@ func (s service) AppointmentViewHandler(w http.ResponseWriter, r *http.Request) 
 						<div class="col-md-6">
 							<h2 class="mt-4">Ek Bilgiler</h2>
 							<p><strong>Tercih Edilen Zaman Dilimi:</strong> {{.PreferTimePeriodInDay}}</p>
-							<p><strong>Bitiş Tarihi:</strong> {{.DueDate}}</p>
+							<p><strong>Oluşturulma Tarihi:</strong> {{.CreatedAt}}</p>
+							<p><strong>Talep Edilen Tarih:</strong> {{.DueDate}}</p>
 							<p><strong>Mesaj:</strong> {{.Message}}</p>
 						</div>
 					</div>
