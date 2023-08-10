@@ -48,6 +48,10 @@ func main() {
 	r.Handle("/api/artist/{short-key}", authmiddleware.Inıt(http.HandlerFunc(s.MakeUpArtistHandler)))
 	r.Handle("/api/appointment", authmiddleware.Inıt(http.HandlerFunc(s.AppointmentHandler)))
 
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "application/index.html")
+	})
+
 	http.Handle("/", r)
 
 	port := os.Getenv("PORT")
