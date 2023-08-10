@@ -42,10 +42,6 @@ func main() {
 
 	r := mux.NewRouter()
 
-	r.Headers("Access-Control-Allow-Origin", "*")
-	r.Headers("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-	r.Headers("Access-Control-Allow-Headers", "Content-Type, Authorization")
-
 	r.Handle("/t/{id}", http.HandlerFunc(s.AppointmentViewHandler))
 	r.Handle("/api/categories", authmiddleware.Inıt(http.HandlerFunc(s.CategoriesHandler)))
 	r.Handle("/api/artists", authmiddleware.Inıt(http.HandlerFunc(s.MakeUpArtistsHandler)))

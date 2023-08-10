@@ -176,6 +176,8 @@ func (s service) AppointmentViewHandler(w http.ResponseWriter, r *http.Request) 
 
 func writeJSONResponse(w http.ResponseWriter, data interface{}, statusCode int) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	w.WriteHeader(statusCode)
 
 	r := Response{
