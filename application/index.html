@@ -1,27 +1,1266 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-</head>
-<body>
-<div id="app">
-    <h1>{{ pageTitle }}</h1>
-    <ul>
-        <li v-for="item in apiData" :key="item.ID">{{ item.Name }}</li>
-    </ul>
-</div>
+<html lang="en-US">
+	<head>
 
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            pageTitle: 'API Verileri',
-            apiData: [
-                {"ID": 1, "Name": "Erhan Karayiğit"}
-            ]
-        },
-    });
-</script>
-</body>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anasayfa | MakyajTakvimi - Güzelliğin internet adresi</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <!-- STYLESHEETS : begin -->
+		<link rel="stylesheet" type="text/css" href="assets/css/general.css"><!-- Default styles generated from assets/scss/general.scss (do not edit) -->
+        <link rel="stylesheet" type="text/css" href="assets/css/color-schemes/default.css"><!-- Default color scheme generated from assets/scss/color-schemes/default.scss (change to other pre-defined or custom color scheme) -->
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css"><!-- Place your own CSS into this file -->
+		<!-- STYLESHEETS : end -->
+
+	</head>
+	<body>
+
+		<!-- WRAPPER : begin -->
+		<div id="wrapper">
+
+			<!-- HEADER : begin -->
+			<header id="header" class="header--has-languages header--has-search header--has-cta header--has-contact header--has-social-links header--has-collision-detection header--has-expanded-panel"
+				style="background-image: url( 'images/header_bg.jpg' )">
+				<div class="header__inner">
+					<div class="header__content">
+
+						<!-- HEADER LANGUAGES : begin -->
+						<div class="header-languages">
+
+							<span class="screen-reader-text">Dil Seçimi</span>
+							<ul class="header-languages__list">
+
+								<li class="header-languages__item header-languages__item--active">
+									<a href="#tr" class="header-languages__item-link">TR</a>
+								</li>
+							</ul>
+
+							<button type="button" class="header-languages__toggle" title="Dil Seçimi">
+								<span class="header-languages__toggle-icon icon-close" aria-hidden="true"></span>
+								<span class="header-languages__toggle-label">TR</span>
+							</button>
+
+						</div>
+						<!-- HEADER LANGUAGES : end -->
+
+						<!-- HEADER BRANDING : begin -->
+						<div class="header-branding">
+							<div class="header-branding__inner">
+
+								<!-- HEADER LOGO : begin -->
+								<div class="header-logo">
+									<a href="index.html" class="header-logo__link">
+										<img src="images/logo.png" class="header-logo__image" alt="Logo">
+									</a>
+								</div>
+								<!-- HEADER LOGO : end -->
+
+								<!-- HEADER TITLE TAGLINE : begin -->
+								<div class="header-title-tagline">
+
+									<div class="header-title">
+										<a href="index.html" class="header-title__link">MakyajTakvimi</a>
+									</div>
+
+									<p class="header-tagline">
+										Güzelliğin internet adresi
+									</p>
+
+								</div>
+								<!-- HEADER TITLE TAGLINE : end -->
+
+							</div>
+						</div>
+						<!-- HEADER BRANDING : end -->
+
+						<!-- HEADER MENU : begin -->
+						<nav class="header-menu" aria-label="Header menu">
+
+							<ul class="header-menu__list" role="menu">
+
+								<!-- MENU ITEM : begin -->
+								<li class="header-menu__item header-menu__item--current header-menu__item--has-children">
+
+									<span class="header-menu__item-link-wrapper">
+										<a href="index.html" class="header-menu__item-link">ANASAYFA</a>
+									</span>
+
+								</li>
+								<!-- MENU ITEM : end -->
+
+								<!-- MENU ITEM : begin -->
+								<li class="header-menu__item">
+
+									<span class="header-menu__item-link-wrapper">
+										<a href="service-archive.html" class="header-menu__item-link">GALERİ</a>
+									</span>
+
+								</li>
+								<!-- MENU ITEM : end -->
+
+								<!-- MENU ITEM : begin -->
+								<li class="header-menu__item">
+
+									<span class="header-menu__item-link-wrapper">
+										<a href="service-archive.html" class="header-menu__item-link">EKİBİMİZ</a>
+									</span>
+
+								</li>
+								<!-- MENU ITEM : end -->
+
+								<!-- MENU ITEM : begin -->
+								<li class="header-menu__item">
+
+									<span class="header-menu__item-link-wrapper">
+										<a href="service-archive.html" class="header-menu__item-link">BLOG</a>
+									</span>
+
+								</li>
+								<!-- MENU ITEM : end -->
+
+								<!-- MENU ITEM : begin -->
+								<li class="header-menu__item">
+
+									<span class="header-menu__item-link-wrapper">
+										<a href="service-archive.html" class="header-menu__item-link">İLETİŞİM</a>
+									</span>
+
+								</li>
+								<!-- MENU ITEM : end -->
+
+							</ul>
+
+						</nav>
+						<!-- HEADER MENU : end -->
+
+						<!-- HEADER SEARCH : begin -->
+						<div class="header-search">
+							<div class="header-search__form">
+
+								<!-- SEARCH FORM : begin -->
+								<form class="search-form" action="search-results.html" method="get" role="search">
+									<div class="search-form__inner">
+										<div class="search-form__input-holder">
+
+											<input class="search-form__input" type="text" name="s" placeholder="Search..." value="">
+
+											<button class="search-form__button" type="submit" title="Search">
+												<span class="search-form__button-icon" aria-hidden="true"></span>
+											</button>
+
+										</div>
+									</div>
+								</form>
+								<!-- SEARCH FORM : end -->
+
+							</div>
+
+							<button type="button" class="header-search__toggle"
+								title="Search">
+								<span class="header-search__toggle-icon" aria-hidden="true"></span>
+							</button>
+
+						</div>
+						<!-- HEADER SEARCH : end -->
+
+						<!-- HEADER PANEL : begin -->
+						<div class="header-panel">
+							<div class="header-panel__inner">
+
+								<!-- HEADER PANEL TOP : begin -->
+								<div class="header-panel__top">
+									<div class="header-panel__top-inner">
+
+										<!-- HEADER CTA : begin -->
+										<div class="header-cta">
+											<a href="contact.html" class="header-cta__button">Hemen Randevu Oluştur</a>
+										</div>
+										<!-- HEADER CTA : end -->
+
+										<!-- HEADER CONTACT : begin -->
+										<div class="header-contact">
+											<div class="header-contact__inner">
+
+												<ul class="header-contact__list">
+
+													<!-- CONTACT ITEM : begin -->
+													<li class="header-contact__item header-contact__item--has-icon">
+														<span class="header-contact__item-icon icon-phone" aria-hidden="true"></span>
+														<a href="tel:08502424058">(0850) 242 4058</a>
+													</li>
+													<!-- CONTACT ITEM : end -->
+
+													<!-- CONTACT ITEM : begin -->
+													<li class="header-contact__item header-contact__item--has-icon">
+														<span class="header-contact__item-icon icon-envelope-o" aria-hidden="true"></span>
+														<a href="mailto:info@makyajtakvimi.com">info@makyajtakvimi.com</a>
+													</li>
+													<!-- CONTACT ITEM : end -->
+
+												</ul>
+
+											</div>
+										</div>
+										<!-- HEADER CONTACT : end -->
+
+									</div>
+								</div>
+								<!-- HEADER PANEL TOP : end -->
+
+								<!-- HEADER PANEL BOTTOM : begin -->
+								<div class="header-panel__bottom">
+									<div class="header-panel__bottom-inner">
+
+										<!-- HEADER SOCIAL : begin -->
+										<div class="header-social">
+											<ul class="header-social__list">
+
+												<!-- SOCIAL ITEM : begin -->
+												<li class="header-social__item header-social__item--facebook">
+													<a class="header-social__item-link" href="#facebook" target="_blank" title="Facebook">
+														<span class="header-social__icon icon-facebook" aria-hidden="true"></span>
+													</a>
+												</li>
+												<!-- SOCIAL ITEM : end -->
+
+												<!-- SOCIAL ITEM : begin -->
+												<li class="header-social__item header-social__item--instagram">
+													<a class="header-social__item-link" href="#instagram" target="_blank" title="Instagram">
+														<span class="header-social__icon icon-instagram" aria-hidden="true"></span>
+													</a>
+												</li>
+												<!-- SOCIAL ITEM : end -->
+
+												<!-- SOCIAL ITEM : begin -->
+												<li class="header-social__item header-social__item--twitter">
+													<a class="header-social__item-link" href="#twitter" target="_blank" title="Twitter">
+														<span class="header-social__icon icon-twitter" aria-hidden="true"></span>
+													</a>
+												</li>
+												<!-- SOCIAL ITEM : end -->
+
+												<!-- SOCIAL ITEM : begin -->
+												<li class="header-social__item header-social__item--youtube">
+													<a class="header-social__item-link" href="#youtube" target="_blank" title="YouTube">
+														<span class="header-social__icon icon-youtube" aria-hidden="true"></span>
+													</a>
+												</li>
+												<!-- SOCIAL ITEM : end -->
+
+											</ul>
+										</div>
+										<!-- HEADER SOCIAL : end -->
+
+										<span class="header-panel__bottom-decor" aria-hidden="true"></span>
+
+
+									</div>
+								</div>
+								<!-- HEADER PANEL BOTTOM : end -->
+
+							</div>
+
+							<button type="button" class="header-panel__toggle">
+								<span class="header-panel__toggle-icon" aria-hidden="true"></span>
+							</button>
+
+						</div>
+						<!-- HEADER PANEL : end -->
+
+						<button type="button" class="header-mobile-toggle">
+							<span class="header-mobile-toggle__icon" aria-hidden="true"></span>
+						</button>
+
+					</div>
+				</div>
+			</header>
+			<!-- HEADER : end -->
+
+			<!-- CORE : begin -->
+			<div id="core" class="core--fullwidth">
+				<div class="core__inner">
+
+					<!-- CORE COLUMNS : begin -->
+					<div class="core__columns">
+						<div class="core__columns-inner">
+
+							<!-- MAIN : begin -->
+							<main id="main">
+								<div class="main__inner">
+
+									<!-- PAGE : begin -->
+									<div class="page">
+										<div class="page__content">
+
+											<!-- LSVR INTRO : begin -->
+											<section class="lsvr-intro lsvr-intro--has-image">
+											    <div class="lsvr-intro__inner">
+											        <div class="lsvr-container">
+											            <div class="lsvr-intro__content">
+
+						                					<div class="lsvr-intro__wrapper">
+
+						                						<!-- INTRO THUMB : begin -->
+						                        				<div class="lsvr-intro__image-col">
+						                            				<p class="lsvr-intro__image-wrapper">
+						                                				<img src="images/person_01.png" class="lsvr-intro__image" alt="Vivien Hawkins">
+						                                			</p>
+						                                		</div>
+						                                		<!-- INTRO THUMB : end -->
+
+						                                		<!-- INTRO TEXT : begin -->
+						                                		<div class="lsvr-intro__text-col">
+
+						                                			<header class="lsvr-intro__header">
+
+						                                				<h2 class="lsvr-intro__title">Hoşgeldiniz!</h2>
+
+						                                				<h3 class="lsvr-intro__subtitle">Güzelliğinizi ön plana çıkarmak için buradayız</h3>
+
+						                                			</header>
+
+						                                			<div class="lsvr-intro__text">
+						                                				<p>
+																			Özenle seçilmiş ekibimiz tarafından sunulan ustalıkla işlenmiş yerinde makyaj hizmetleri ile güzelliğinizi daha da ileri taşımayı amaçlıyoruz.
+																		</p>
+						                            				</div>
+
+										                            <p class="lsvr-intro__more">
+										                                <a href="contact.html" class="lsvr-button lsvr-intro__more-link">Randevu Oluşturun</a>
+										                            </p>
+
+						                    					</div>
+						                    					<!-- INTRO TEXT : end -->
+
+						                					</div>
+
+						            					</div>
+						        					</div>
+						    					</div>
+											</section>
+											<!-- LSVR INTRO : end -->
+
+											<!-- LSVR SERVICES : begin -->
+											<section class="lsvr-services lsvr-services--fullwidth-layout">
+											    <div class="lsvr-services__inner">
+											        <div class="lsvr-services__content">
+
+						                    			<!-- SERVICE LIST : begin -->
+						                    			<div class="lsvr-services__list-wrapper">
+						                    				<div class="lsvr-container">
+						                    					<div class="lsvr-services__list lsvr-grid lsvr-grid--3-cols lsvr-grid--md-2-cols lsvr-grid--sm-1-cols">
+
+						                							<!-- SERVICE ITEM : begin -->
+						                    						<div class="lsvr-services__item lsvr-grid__col lsvr-services__item--has-thumbnail">
+						                    							<article class="lsvr-beautyspot-services__post">
+							                    							<div class="lsvr-services__post-bg" style="background-image: url( 'images/service_01.jpg' ); ">
+							                                            		<div class="lsvr-services__post-inner">
+
+							                                            			<!-- SERVICE ITEM HEADER : begin -->
+							                                        				<header class="lsvr-services__post-header">
+							                                                    		<div class="lsvr-services__post-header-inner">
+
+							                                                    			<span class="lsvr-services__post-icon icon-powder-brush" aria-hidden="true"></span>
+
+							                                                    			<h3 class="lsvr-services__post-title">
+							                                                    				<a href="service-single.html" class="lsvr-services__post-title-link">Düğün Makyajı</a>
+							                                                				</h3>
+
+								                                                    	</div>
+							                                                		</header>
+							                                                		<!-- SERVICE ITEM HEADER : end -->
+
+							                                                		<!-- SERVICE ITEM DESCRIPTION : begin -->
+							                                                		<div class="lsvr-services__post-description">
+							                                                        	<div class="lsvr-services__post-description-inner">
+							                                                            	<p>
+																								Özel gününüzde ışığınızı en parlak haliyle yansıtın - Düğün makyaj hizmetimiz, deneyimli ekip üyelerimiz tarafından hayalinizdeki gelin makyajını yaratmak için özenle tasarlanmıştır.
+																								Yerinde makyaj hizmeti ile unutulmaz anlarınıza kişisel dokunuşlar eklemek için buradayız.
+																							</p>
+							                                                        	</div>
+							                                                    	</div>
+							                                                    	<!-- SERVICE ITEM DESCRIPTION : end -->
+
+									                                                <a href="service-single.html" class="lsvr-services__post-overlay-link">
+									                                                    <span class="screen-reader-text">More Info</span>
+									                                                </a>
+
+							                                            		</div>
+							                                        		</div>
+							                                    		</article>
+						                                			</div>
+						                                			<!-- SERVICE ITEM : end -->
+
+						                							<!-- SERVICE ITEM : begin -->
+						                    						<div class="lsvr-services__item lsvr-grid__col lsvr-services__item--has-thumbnail">
+						                    							<article class="lsvr-beautyspot-services__post">
+							                    							<div class="lsvr-services__post-bg" style="background-image: url( 'images/service_03.jpg' ); ">
+							                                            		<div class="lsvr-services__post-inner">
+
+							                                            			<!-- SERVICE ITEM HEADER : begin -->
+							                                        				<header class="lsvr-services__post-header">
+							                                                    		<div class="lsvr-services__post-header-inner">
+
+							                                                    			<span class="lsvr-services__post-icon icon-hair-dryer" aria-hidden="true"></span>
+
+							                                                    			<h3 class="lsvr-services__post-title">
+							                                                    				<a href="service-single.html" class="lsvr-services__post-title-link">Nişan Makyajı</a>
+							                                                				</h3>
+
+								                                                    	</div>
+							                                                		</header>
+							                                                		<!-- SERVICE ITEM HEADER : end -->
+
+							                                                		<!-- SERVICE ITEM DESCRIPTION : begin -->
+							                                                		<div class="lsvr-services__post-description">
+							                                                        	<div class="lsvr-services__post-description-inner">
+							                                                            	<p>
+																								Adresinizde, özel günlerinizde yanınızdayız - Nişan makyaj hizmetimizle, siz neredeyseniz oradayız, doğal güzelliğinizi ön plana çıkarmak için ekibimizle yanınızdayız.
+																							</p>
+							                                                        	</div>
+							                                                    	</div>
+							                                                    	<!-- SERVICE ITEM DESCRIPTION : end -->
+
+									                                                <a href="service-single.html" class="lsvr-services__post-overlay-link">
+									                                                    <span class="screen-reader-text">More Info</span>
+									                                                </a>
+
+							                                            		</div>
+							                                        		</div>
+							                                    		</article>
+						                                			</div>
+						                                			<!-- SERVICE ITEM : end -->
+
+						                							<!-- SERVICE ITEM : begin -->
+						                    						<div class="lsvr-services__item lsvr-grid__col lsvr-services__item--has-thumbnail">
+						                    							<article class="lsvr-beautyspot-services__post">
+							                    							<div class="lsvr-services__post-bg" style="background-image: url( 'images/service_02.jpg' ); ">
+							                                            		<div class="lsvr-services__post-inner">
+
+							                                            			<!-- SERVICE ITEM HEADER : begin -->
+							                                        				<header class="lsvr-services__post-header">
+							                                                    		<div class="lsvr-services__post-header-inner">
+
+							                                                    			<span class="lsvr-services__post-icon icon-lotus-flower" aria-hidden="true"></span>
+
+							                                                    			<h3 class="lsvr-services__post-title">
+							                                                    				<a href="service-single.html" class="lsvr-services__post-title-link">Mezuniyet Makyajı</a>
+							                                                				</h3>
+
+								                                                    	</div>
+							                                                		</header>
+							                                                		<!-- SERVICE ITEM HEADER : end -->
+
+							                                                		<!-- SERVICE ITEM DESCRIPTION : begin -->
+							                                                		<div class="lsvr-services__post-description">
+							                                                        	<div class="lsvr-services__post-description-inner">
+							                                                            	<p>
+																								Mezuniyet gününüzde sizin için buradayız - Mezuniyet makyaj hizmetimiz ile size özel ve şık bir görünüm sunmak için ekibimizle adresinize geliyoruz.
+																							</p>
+							                                                        	</div>
+							                                                    	</div>
+							                                                    	<!-- SERVICE ITEM DESCRIPTION : end -->
+
+									                                                <a href="service-single.html" class="lsvr-services__post-overlay-link">
+									                                                    <span class="screen-reader-text">More Info</span>
+									                                                </a>
+
+							                                            		</div>
+							                                        		</div>
+							                                    		</article>
+						                                			</div>
+						                                			<!-- SERVICE ITEM : end -->
+						                        				</div>
+						                    				</div>
+						                				</div>
+						                				<!-- SERVICE LIST : end -->
+
+						        					</div>
+						    					</div>
+											</section>
+											<!-- LSVR SERVICES : end -->
+
+											<!-- LSVR FAQ : begin -->
+											<section class="lsvr-faq">
+											    <div class="lsvr-faq__inner">
+											    	<div class="lsvr-faq__content">
+
+									                	<!-- FAQ HEADER : begin -->
+														<div class="lsvr-faq__header-wrapper">
+															<div class="lsvr-container">
+									                    		<header class="lsvr-faq__header">
+
+									                    			<h2 class="lsvr-faq__title">
+									                    				<a href="faq-archive" class="lsvr-faq__title-link">Sık Sorulan Sorular</a>
+									                    			</h2>
+
+									                    			<h3 class="lsvr-faq__subtitle">Other treatments of the face are known as facials</h3>
+
+									                    		</header>
+								                    		</div>
+							                    		</div>
+							                    		<!-- FAQ HEADER : end -->
+
+							                    		<!-- FAQ LIST : begin -->
+							                    		<div class="lsvr-faq__list-wrapper">
+							                    			<div class="lsvr-container">
+
+																<!-- LSVR GRID : begin -->
+							                    				<div class="lsvr-grid lsvr-grid--2-cols lsvr-grid--sm-1-cols">
+
+							                    					<!-- GRID COL : begin -->
+							                    					<div class="lsvr-grid__col">
+
+								                    					<!-- LSVR ACCORDION : begin -->
+							                    						<div class="lsvr-accordion">
+
+									                    					<!-- ACCORDION ITEM : begin -->
+								                    						<div class="lsvr-accordion__item">
+							                                    				<div class="lsvr-accordion__item-inner">
+
+							                                    					<!-- ACCORDION ITEM HEADER : begin -->
+											                                        <header class="lsvr-accordion__item-header">
+											                                            <h3 class="lsvr-accordion__item-title">Cosmetics can be also described by the physical composition?</h3>
+											                                        </header>
+											                                        <!-- ACCORDION ITEM HEADER : end -->
+
+											                                        <!-- ACCORDION ITEM CONTENT WRAPPER : begin -->
+							                                        				<div class="lsvr-accordion__item-content-wrapper">
+
+							                                        					<!-- ACCORDION ITEM CONTENT : begin -->
+							                                        					<div class="lsvr-accordion__item-content">
+							                                        						<p>Cosmetics can be liquid or cream emulsions; powders, both pressed and loose; dispersions; and anhydrous creams or sticks.</p>
+							                                           					</div>
+							                                           					<!-- ACCORDION ITEM CONTENT : end -->
+
+																						<!-- ACCORDION ITEM FOOTER : begin -->
+								                                               			<footer class="lsvr-accordion__item-footer">
+
+								                                                        	<p class="lsvr-accordion__item-footer-permalink">
+									                                                           <a href="faq-single.html" class="lsvr-accordion__item-footer-permalink-link">Permalink</a>
+									                                                        </p>
+
+								                                                		</footer>
+								                                                		<!-- ACCORDION ITEM FOOTER : end -->
+
+							                                        				</div>
+							                                        				<!-- ACCORDION ITEM CONTENT WRAPPER : end -->
+
+							                                        			</div>
+							                                    			</div>
+								                                			<!-- ACCORDION ITEM : end -->
+
+									                    					<!-- ACCORDION ITEM : begin -->
+								                    						<div class="lsvr-accordion__item">
+							                                    				<div class="lsvr-accordion__item-inner">
+
+							                                    					<!-- ACCORDION ITEM HEADER : begin -->
+											                                        <header class="lsvr-accordion__item-header">
+											                                            <h3 class="lsvr-accordion__item-title">Hair coloring, or hair dyeing, is the practice of changing the hair color?</h3>
+											                                        </header>
+											                                        <!-- ACCORDION ITEM HEADER : end -->
+
+											                                        <!-- ACCORDION ITEM CONTENT WRAPPER : begin -->
+							                                        				<div class="lsvr-accordion__item-content-wrapper">
+
+							                                        					<!-- ACCORDION ITEM CONTENT : begin -->
+							                                        					<div class="lsvr-accordion__item-content">
+							                                        						<p>The main reasons for this are cosmetic: to cover gray or white hair, to change to a color regarded as more fashionable or desirable, or to restore the original hair color after it has been discolored by hairdressing processes or sun bleaching.</p>
+							                                           					</div>
+							                                           					<!-- ACCORDION ITEM CONTENT : end -->
+
+																						<!-- ACCORDION ITEM FOOTER : begin -->
+								                                               			<footer class="lsvr-accordion__item-footer">
+
+								                                                        	<p class="lsvr-accordion__item-footer-permalink">
+									                                                           <a href="faq-single.html" class="lsvr-accordion__item-footer-permalink-link">Permalink</a>
+									                                                        </p>
+
+								                                                		</footer>
+								                                                		<!-- ACCORDION ITEM FOOTER : end -->
+
+							                                        				</div>
+							                                        				<!-- ACCORDION ITEM CONTENT WRAPPER : end -->
+
+							                                        			</div>
+							                                    			</div>
+								                                			<!-- ACCORDION ITEM : end -->
+
+									                    					<!-- ACCORDION ITEM : begin -->
+								                    						<div class="lsvr-accordion__item">
+							                                    				<div class="lsvr-accordion__item-inner">
+
+							                                    					<!-- ACCORDION ITEM HEADER : begin -->
+											                                        <header class="lsvr-accordion__item-header">
+											                                            <h3 class="lsvr-accordion__item-title">Online marketing to gain customers and compete with the franchise?</h3>
+											                                        </header>
+											                                        <!-- ACCORDION ITEM HEADER : end -->
+
+											                                        <!-- ACCORDION ITEM CONTENT WRAPPER : begin -->
+							                                        				<div class="lsvr-accordion__item-content-wrapper">
+
+							                                        					<!-- ACCORDION ITEM CONTENT : begin -->
+							                                        					<div class="lsvr-accordion__item-content">
+							                                        						<p>The US Labor Department estimates employment in the United States will increase 20% between 2008–2014, with greatest employment growth from skin care specialists.</p>
+							                                           					</div>
+							                                           					<!-- ACCORDION ITEM CONTENT : end -->
+
+																						<!-- ACCORDION ITEM FOOTER : begin -->
+								                                               			<footer class="lsvr-accordion__item-footer">
+
+								                                                        	<p class="lsvr-accordion__item-footer-permalink">
+									                                                           <a href="faq-single.html" class="lsvr-accordion__item-footer-permalink-link">Permalink</a>
+									                                                        </p>
+
+								                                                		</footer>
+								                                                		<!-- ACCORDION ITEM FOOTER : end -->
+
+							                                        				</div>
+							                                        				<!-- ACCORDION ITEM CONTENT WRAPPER : end -->
+
+							                                        			</div>
+							                                    			</div>
+								                                			<!-- ACCORDION ITEM : end -->
+
+							                    						</div>
+						                    							<!-- LSVR ACCORDION : end -->
+
+						                                			</div>
+						                                			<!-- GRID COL : end -->
+
+							                    					<!-- GRID COL : begin -->
+							                    					<div class="lsvr-grid__col">
+
+								                    					<!-- LSVR ACCORDION : begin -->
+							                    						<div class="lsvr-accordion">
+
+									                    					<!-- ACCORDION ITEM : begin -->
+								                    						<div class="lsvr-accordion__item">
+							                                    				<div class="lsvr-accordion__item-inner">
+
+							                                    					<!-- ACCORDION ITEM HEADER : begin -->
+											                                        <header class="lsvr-accordion__item-header">
+											                                            <h3 class="lsvr-accordion__item-title">Hair care is the largest segment with 86,000 locations?</h3>
+											                                        </header>
+											                                        <!-- ACCORDION ITEM HEADER : end -->
+
+											                                        <!-- ACCORDION ITEM CONTENT WRAPPER : begin -->
+							                                        				<div class="lsvr-accordion__item-content-wrapper">
+
+							                                        					<!-- ACCORDION ITEM CONTENT : begin -->
+							                                        					<div class="lsvr-accordion__item-content">
+							                                        						<p>Skin care is expected to have revenue of almost $11 billion by 2018. This growth is being driven in part by a generally increasing awareness of the importance of skin care among American woman, but also specifically due to an increase in the market for men. The market is distributed widely across America, with a concentration in the Northeast and Midwest.</p>
+							                                           					</div>
+							                                           					<!-- ACCORDION ITEM CONTENT : end -->
+
+																						<!-- ACCORDION ITEM FOOTER : begin -->
+								                                               			<footer class="lsvr-accordion__item-footer">
+
+								                                                        	<p class="lsvr-accordion__item-footer-permalink">
+									                                                           <a href="faq-single.html" class="lsvr-accordion__item-footer-permalink-link">Permalink</a>
+									                                                        </p>
+
+								                                                		</footer>
+								                                                		<!-- ACCORDION ITEM FOOTER : end -->
+
+							                                        				</div>
+							                                        				<!-- ACCORDION ITEM CONTENT WRAPPER : end -->
+
+							                                        			</div>
+							                                    			</div>
+								                                			<!-- ACCORDION ITEM : end -->
+
+									                    					<!-- ACCORDION ITEM : begin -->
+								                    						<div class="lsvr-accordion__item">
+							                                    				<div class="lsvr-accordion__item-inner">
+
+							                                    					<!-- ACCORDION ITEM HEADER : begin -->
+											                                        <header class="lsvr-accordion__item-header">
+											                                            <h3 class="lsvr-accordion__item-title">Beauty salons have proven to be a recession-proof industry?</h3>
+											                                        </header>
+											                                        <!-- ACCORDION ITEM HEADER : end -->
+
+											                                        <!-- ACCORDION ITEM CONTENT WRAPPER : begin -->
+							                                        				<div class="lsvr-accordion__item-content-wrapper">
+
+							                                        					<!-- ACCORDION ITEM CONTENT : begin -->
+							                                        					<div class="lsvr-accordion__item-content">
+							                                        						<p>Although sales had declined from 2008 highs due to the Great Recession, they remain robust with long term positive forecast. Even though during recessions, consumers tend to be more price conscious, spending continues to increase. With rising per capita incomes across the United States since 2015, beauty salons are booming with the industry generating $56.2 billion in the United States.</p>
+							                                           					</div>
+							                                           					<!-- ACCORDION ITEM CONTENT : end -->
+
+																						<!-- ACCORDION ITEM FOOTER : begin -->
+								                                               			<footer class="lsvr-accordion__item-footer">
+
+								                                                        	<p class="lsvr-accordion__item-footer-permalink">
+									                                                           <a href="faq-single.html" class="lsvr-accordion__item-footer-permalink-link">Permalink</a>
+									                                                        </p>
+
+								                                                		</footer>
+								                                                		<!-- ACCORDION ITEM FOOTER : end -->
+
+							                                        				</div>
+							                                        				<!-- ACCORDION ITEM CONTENT WRAPPER : end -->
+
+							                                        			</div>
+							                                    			</div>
+								                                			<!-- ACCORDION ITEM : end -->
+
+									                    					<!-- ACCORDION ITEM : begin -->
+								                    						<div class="lsvr-accordion__item">
+							                                    				<div class="lsvr-accordion__item-inner">
+
+							                                    					<!-- ACCORDION ITEM HEADER : begin -->
+											                                        <header class="lsvr-accordion__item-header">
+											                                            <h3 class="lsvr-accordion__item-title">Some beauty salons style hair instead of going to a separate hair salon?</h3>
+											                                        </header>
+											                                        <!-- ACCORDION ITEM HEADER : end -->
+
+											                                        <!-- ACCORDION ITEM CONTENT WRAPPER : begin -->
+							                                        				<div class="lsvr-accordion__item-content-wrapper">
+
+							                                        					<!-- ACCORDION ITEM CONTENT : begin -->
+							                                        					<div class="lsvr-accordion__item-content">
+							                                        						<p>Other treatments of the face are known as facials. Specialized beauty salons known as nail salons offer treatments such as manicures and pedicures for the nails. A manicure is a treatment for the hands, incorporating the fingernails and cuticles and often involving the application of nail polish, while a pedicure involves treatment of the feet, incorporating the toenails and the softening or removal of calluses.</p>
+							                                           					</div>
+							                                           					<!-- ACCORDION ITEM CONTENT : end -->
+
+																						<!-- ACCORDION ITEM FOOTER : begin -->
+								                                               			<footer class="lsvr-accordion__item-footer">
+
+								                                                        	<p class="lsvr-accordion__item-footer-permalink">
+									                                                           <a href="faq-single.html" class="lsvr-accordion__item-footer-permalink-link">Permalink</a>
+									                                                        </p>
+
+								                                                		</footer>
+								                                                		<!-- ACCORDION ITEM FOOTER : end -->
+
+							                                        				</div>
+							                                        				<!-- ACCORDION ITEM CONTENT WRAPPER : end -->
+
+							                                        			</div>
+							                                    			</div>
+								                                			<!-- ACCORDION ITEM : end -->
+
+							                    						</div>
+						                    							<!-- LSVR ACCORDION : end -->
+
+						                                			</div>
+						                                			<!-- GRID COL : end -->
+
+						                            			</div>
+						                            			<!-- LSVR GRID : end -->
+
+						                        			</div>
+						                    			</div>
+						                    			<!-- FAQ LIST : end -->
+
+						            				</div>
+						        				</div>
+											</section>
+											<!-- LSVR FAQ : end -->
+
+											<!-- LSVR CTA : begin -->
+											<section class="lsvr-cta lsvr-cta--has-button lsvr-cta--has-dark-background">
+											    <div class="lsvr-cta__inner">
+											        <div class="lsvr-container">
+											            <div class="lsvr-cta__content">
+
+											            	<h3 class="lsvr-cta__title">MakyajTakvimi</h3>
+
+											            	<div class="lsvr-cta__text">
+											            		<p>Güzelliğin internet adresinden randevu oluşturun! Ekibimizle adresinize gelelim.</p>
+						                    				</div>
+
+						                    				<p class="lsvr-cta__button">
+						                        				<a href="https://themeforest.net/item/beautyspot-html-template-for-beauty-salons/7734629" class="lsvr-cta__button-link lsvr-button" target="_blank">Şimdi Randevu Oluştur</a>
+						                        			</p>
+
+						            					</div>
+						        					</div>
+						    					</div>
+											</section>
+											<!-- LSVR CTA : end -->
+
+											<!-- LSVR SIDEBAR : begin -->
+											<section class="lsvr-sidebar">
+											    <div class="lsvr-sidebar__inner">
+											        <div class="lsvr-container">
+											            <div class="lsvr-sidebar__content">
+
+											            	<!-- SIDEBAR LIST : begin -->
+											            	<div class="lsvr-sidebar__list lsvr-grid lsvr-grid--3-cols lsvr-grid--md-2-cols lsvr-grid--sm-1-cols">
+
+						            							<!-- SIDEBAR ITEM : begin -->
+						                						<div class="lsvr-sidebar__item lsvr-grid__col">
+
+																	<!-- LSVR POST LIST WIDGET : begin -->
+																	<div class="widget lsvr-post-list-widget">
+																		<div class="widget__inner">
+																			<h3 class="widget__title">Son Blog Gönderileri</h3>
+																			<div class="widget__content">
+
+																				<ul class="lsvr-post-list-widget__list">
+
+																					<!-- POST LIST ITEM : begin -->
+																					<li class="lsvr-post-list-widget__item lsvr-post-list-widget__item--has-thumb">
+																						<div class="lsvr-post-list-widget__item-inner">
+
+																							<!-- POST THUMB : begin -->
+																							<p class="lsvr-post-list-widget__item-thumb">
+																								<a href="blog-single.html" class="lsvr-post-list-widget__item-thumb-link">
+																									<img src="images/blog_01_th.jpg" class="lsvr-post-list-widget__item-thumb-img" alt="A spa is a location where mineral-rich spring water ">
+																								</a>
+																							</p>
+																							<!-- POST THUMB : end -->
+
+																							<!-- POST CONTENT : begin -->
+																							<div class="lsvr-post-list-widget__item-content">
+																								<h4 class="lsvr-post-list-widget__item-title">
+																									<a href="blog-single.html" class="lsvr-post-list-widget__item-title-link">A spa is a location where mineral-rich spring water </a>
+																								</h4>
+																								<p class="lsvr-post-list-widget__item-date">August 23, 2020</p>
+																								<p class="lsvr-post-list-widget__item-category"> in <a href="blog-archive" class="lsvr-post-list-widget__item-category-link">Spa Treatments</a></p>
+																							</div>
+																							<!-- POST CONTENT : end -->
+
+																						</div>
+																					</li>
+																					<!-- POST LIST ITEM : end -->
+
+																					<!-- POST LIST ITEM : begin -->
+																					<li class="lsvr-post-list-widget__item lsvr-post-list-widget__item--has-thumb">
+																						<div class="lsvr-post-list-widget__item-inner">
+
+																							<!-- POST THUMB : begin -->
+																							<p class="lsvr-post-list-widget__item-thumb">
+																								<a href="blog-single.html" class="lsvr-post-list-widget__item-thumb-link">
+																									<img src="images/blog_02_th.jpg" class="lsvr-post-list-widget__item-thumb-img" alt="The main professionals that provide therapeutic">
+																								</a>
+																							</p>
+																							<!-- POST THUMB : end -->
+
+																							<!-- POST CONTENT : begin -->
+																							<div class="lsvr-post-list-widget__item-content">
+																								<h4 class="lsvr-post-list-widget__item-title">
+																									<a href="blog-single.html" class="lsvr-post-list-widget__item-title-link">The main professionals that provide therapeutic </a>
+																								</h4>
+																								<p class="lsvr-post-list-widget__item-date">July 18, 2020</p>
+																								<p class="lsvr-post-list-widget__item-category"> in <a href="blog-archive" class="lsvr-post-list-widget__item-category-link">Spa Treatments</a></p>
+																							</div>
+																							<!-- POST CONTENT : end -->
+
+																						</div>
+																					</li>
+																					<!-- POST LIST ITEM : end -->
+
+																					<!-- POST LIST ITEM : begin -->
+																					<li class="lsvr-post-list-widget__item lsvr-post-list-widget__item--has-thumb">
+																						<div class="lsvr-post-list-widget__item-inner">
+
+																							<!-- POST THUMB : begin -->
+																							<p class="lsvr-post-list-widget__item-thumb">
+																								<a href="blog-single.html" class="lsvr-post-list-widget__item-thumb-link">
+																									<img src="images/blog_03_th.jpg" class="lsvr-post-list-widget__item-thumb-img" alt="The dyeing of hair is an ancient art that involves">
+																								</a>
+																							</p>
+																							<!-- POST THUMB : end -->
+
+																							<!-- POST CONTENT : begin -->
+																							<div class="lsvr-post-list-widget__item-content">
+																								<h4 class="lsvr-post-list-widget__item-title">
+																									<a href="blog-single.html" class="lsvr-post-list-widget__item-title-link">The dyeing of hair is an ancient art that involves</a>
+																								</h4>
+																								<p class="lsvr-post-list-widget__item-date">June 25, 2020</p>
+																								<p class="lsvr-post-list-widget__item-category"> in <a href="blog-archive" class="lsvr-post-list-widget__item-category-link">Hair Care</a></p>
+																							</div>
+																							<!-- POST CONTENT : end -->
+
+																						</div>
+																					</li>
+																					<!-- POST LIST ITEM : end -->
+
+																				</ul>
+
+																			</div>
+																		</div>
+																	</div>
+																	<!-- LSVR POST LIST WIDGET : end -->
+
+						            							</div>
+						            							<!-- SIDEBAR ITEM : end -->
+
+						            							<!-- SIDEBAR ITEM : begin -->
+						                						<div class="lsvr-sidebar__item lsvr-grid__col">
+
+																	<!-- LSVR PERSON LIST WIDGET : begin -->
+																	<div class="widget lsvr-person-list-widget">
+																		<div class="widget__inner">
+																			<h3 class="widget__title">Ekibimiz</h3>
+																			<div class="widget__content">
+
+																				<ul class="lsvr-person-list-widget__list">
+
+																					<!-- PERSON LIST ITEM : begin -->
+																					<li class="lsvr-person-list-widget__item lsvr-person-list-widget__item--has-thumb">
+																						<div class="lsvr-person-list-widget__item-inner">
+
+																							<!-- PERSON THUMB : begin -->
+																							<p class="lsvr-person-list-widget__item-thumb">
+																								<a href="person-single.html" class="lsvr-person-list-widget__item-thumb-link">
+																									<img src="images/person_01_th.jpg" class="lsvr-person-list-widget__item-thumb-img" alt="Vivien Hawkins">
+																								</a>
+																							</p>
+																							<!-- PERSON THUMB : end -->
+
+																							<!-- PERSON CONTENT : begin -->
+																							<div class="lsvr-person-list-widget__item-content">
+
+																								<h4 class="lsvr-person-list-widget__item-title">
+																									<a href="blog-single.html" class="lsvr-person-list-widget__item-title-link">Vivien Hawkins</a>
+																								</h4>
+
+																								<p class="lsvr-person-list-widget__item-subtitle">Makeup Specialist</p>
+
+																								<!-- PERSON SOCIAL : begin -->
+																								<ul class="lsvr-person-list-widget__item-social" title="Social Media Links">
+
+																									<li class="lsvr-person-list-widget__item-social-item">
+																										<a href="#twitter" class="lsvr-person-list-widget__item-social-link" target="_blank" title="Twitter">
+																											<span class="lsvr-person-list-widget__item-social-icon person-social-icon person-social-icon--twitter" aria-hidden="true"></span>
+																										</a>
+																									</li>
+
+																									<li class="lsvr-person-list-widget__item-social-item">
+																										<a href="#facebook" class="lsvr-person-list-widget__item-social-link" target="_blank" title="Facebook">
+																											<span class="lsvr-person-list-widget__item-social-icon person-social-icon person-social-icon--facebook" aria-hidden="true"></span>
+																										</a>
+																									</li>
+
+																								</ul>
+																								<!-- PERSON SOCIAL : end -->
+
+																							</div>
+																							<!-- PERSON CONTENT : end -->
+
+																						</div>
+																					</li>
+																					<!-- PERSON LIST ITEM : end -->
+
+																					<!-- PERSON LIST ITEM : begin -->
+																					<li class="lsvr-person-list-widget__item lsvr-person-list-widget__item--has-thumb">
+																						<div class="lsvr-person-list-widget__item-inner">
+
+																							<!-- PERSON THUMB : begin -->
+																							<p class="lsvr-person-list-widget__item-thumb">
+																								<a href="person-single.html" class="lsvr-person-list-widget__item-thumb-link">
+																									<img src="images/person_02_th.jpg" class="lsvr-person-list-widget__item-thumb-img" alt="Rudy Martinez">
+																								</a>
+																							</p>
+																							<!-- PERSON THUMB : end -->
+
+																							<!-- PERSON CONTENT : begin -->
+																							<div class="lsvr-person-list-widget__item-content">
+
+																								<h4 class="lsvr-person-list-widget__item-title">
+																									<a href="blog-single.html" class="lsvr-person-list-widget__item-title-link">Rudy Martinez</a>
+																								</h4>
+
+																								<p class="lsvr-person-list-widget__item-subtitle">Body Treatments</p>
+
+																								<!-- PERSON SOCIAL : begin -->
+																								<ul class="lsvr-person-list-widget__item-social" title="Social Media Links">
+
+																									<li class="lsvr-person-list-widget__item-social-item">
+																										<a href="#twitter" class="lsvr-person-list-widget__item-social-link" target="_blank" title="Twitter">
+																											<span class="lsvr-person-list-widget__item-social-icon person-social-icon person-social-icon--twitter" aria-hidden="true"></span>
+																										</a>
+																									</li>
+
+																									<li class="lsvr-person-list-widget__item-social-item">
+																										<a href="#facebook" class="lsvr-person-list-widget__item-social-link" target="_blank" title="Facebook">
+																											<span class="lsvr-person-list-widget__item-social-icon person-social-icon person-social-icon--facebook" aria-hidden="true"></span>
+																										</a>
+																									</li>
+
+																								</ul>
+																								<!-- PERSON SOCIAL : end -->
+
+																							</div>
+																							<!-- PERSON CONTENT : end -->
+
+																						</div>
+																					</li>
+																					<!-- PERSON LIST ITEM : end -->
+
+																					<!-- PERSON LIST ITEM : begin -->
+																					<li class="lsvr-person-list-widget__item lsvr-person-list-widget__item--has-thumb">
+																						<div class="lsvr-person-list-widget__item-inner">
+
+																							<!-- PERSON THUMB : begin -->
+																							<p class="lsvr-person-list-widget__item-thumb">
+																								<a href="person-single.html" class="lsvr-person-list-widget__item-thumb-link">
+																									<img src="images/person_03_th.jpg" class="lsvr-person-list-widget__item-thumb-img" alt="Matthew Hernandez">
+																								</a>
+																							</p>
+																							<!-- PERSON THUMB : end -->
+
+																							<!-- PERSON CONTENT : begin -->
+																							<div class="lsvr-person-list-widget__item-content">
+
+																								<h4 class="lsvr-person-list-widget__item-title">
+																									<a href="blog-single.html" class="lsvr-person-list-widget__item-title-link">Matthew Hernandez</a>
+																								</h4>
+
+																								<p class="lsvr-person-list-widget__item-subtitle">Barber and Hairdresser</p>
+
+																								<!-- PERSON SOCIAL : begin -->
+																								<ul class="lsvr-person-list-widget__item-social" title="Social Media Links">
+
+																									<li class="lsvr-person-list-widget__item-social-item">
+																										<a href="#twitter" class="lsvr-person-list-widget__item-social-link" target="_blank" title="Twitter">
+																											<span class="lsvr-person-list-widget__item-social-icon person-social-icon person-social-icon--twitter" aria-hidden="true"></span>
+																										</a>
+																									</li>
+
+																									<li class="lsvr-person-list-widget__item-social-item">
+																										<a href="#facebook" class="lsvr-person-list-widget__item-social-link" target="_blank" title="Facebook">
+																											<span class="lsvr-person-list-widget__item-social-icon person-social-icon person-social-icon--facebook" aria-hidden="true"></span>
+																										</a>
+																									</li>
+
+																								</ul>
+																								<!-- PERSON SOCIAL : end -->
+
+																							</div>
+																							<!-- PERSON CONTENT : end -->
+
+																						</div>
+																					</li>
+																					<!-- PERSON LIST ITEM : end -->
+
+																				</ul>
+
+																			</div>
+																		</div>
+																	</div>
+																	<!-- LSVR POST LIST WIDGET : end -->
+
+						            							</div>
+						            							<!-- SIDEBAR ITEM : end -->
+
+						            							<!-- SIDEBAR ITEM : begin -->
+						                						<div class="lsvr-sidebar__item lsvr-grid__col">
+
+																	<!-- LSVR FEATURED TESTIMONIAL WIDGET : begin -->
+																	<div class="widget lsvr-testimonial-featured-widget">
+																		<div class="widget__inner">
+																			<h3 class="widget__title">Featured Testimonial</h3>
+																			<div class="widget__content">
+
+																				<div class="lsvr-testimonial-featured-widget__content">
+																					<div class="lsvr-testimonial-featured-widget__wrapper">
+
+																						<!-- TESTIMONIAL BLOCQUOTE : begin -->
+																						<blockquote class="lsvr-testimonial-featured-widget__quote">
+
+																							<p>Eye shadow is a pigmented powder/cream or substance used to accentuate the eye area, traditionally on, above, and under the eyelids. Many colours may be used at once and blended together to create different effects using a blending brush.</p>
+
+																							<div class="lsvr-testimonial-featured-widget__footer lsvr-testimonial-featured-widget__footer--has-thumb">
+
+																								<p class="lsvr-testimonial-featured-widget__thumb">
+																									<a href="testimonial-single.html" class="lsvr-testimonial-featured-widget__thumb-link">
+																										<img src="images/client_01.jpg" class="lsvr-testimonial-featured-widget__thumb-image" alt="Sandra Olson">
+																									</a>
+																								</p>
+
+																								<cite class="lsvr-testimonial-featured-widget__author">
+																									<a href="testimonial-single.html" class="lsvr-testimonial-featured-widget__author-link">Sandra Olson</a>
+																									<span class="lsvr-testimonial-featured-widget__author-description">Pharmacist</span>
+																								</cite>
+
+																							</div>
+
+																						</blockquote>
+																						<!-- TESTIMONIAL BLOCQUOTE : end -->
+
+																					</div>
+																				</div>
+
+																			</div>
+																		</div>
+																	</div>
+																	<!-- LSVR FEATURED TESTIMONIAL WIDGET : end -->
+
+						                						</div>
+						                						<!-- SIDEBAR ITEM : end -->
+
+										            		</div>
+										            		<!-- SIDEBAR LIST : begin -->
+
+						            					</div>
+						        					</div>
+						    					</div>
+											</section>
+											<!-- LSVR SIDEBAR : end -->
+
+										</div>
+									</div>
+									<!-- PAGE : end -->
+
+								</div>
+							</main>
+							<!-- MAIN : end -->
+
+						</div>
+					</div>
+					<!-- CORE COLUMNS : end -->
+
+				</div>
+			</div>
+			<!-- CORE : end -->
+
+			<!-- FOOTER : begin -->
+			<footer id="footer">
+				<div class="footer__inner">
+
+					<!-- FOOTER WIDGETS : begin -->
+					<div class="footer-widgets" style="background-image: url( 'images/footer_bg.jpg' )">
+						<div class="footer-widgets__inner">
+							<div class="lsvr-container">
+
+								<!-- WIDGETS GRID : begin -->
+								<div class="footer-widgets__grid lsvr-grid">
+
+									<!-- GRID COLUMN : begin -->
+									<div class="footer-widgets__grid-col lsvr-grid__col lsvr-grid__col--span-8 lsvr-grid__col--md-span-12">
+
+										<!-- TEXT WIDGET : begin -->
+										<div class="widget lsvr-text-widget">
+											<div class="widget__inner">
+
+												<h3 class="widget__title">About BeautySpot</h3>
+												<div class="widget__content">
+
+													<p>BeautySpot is an ideal HTML template for beauty salons, hairdressers, wellness or spa websites.
+													Clean and fast code is wrapped in unique design.</p>
+													<p>You can buy this HTML template on <a href="https://themeforest.net/item/beautyspot-html-template-for-beauty-salons/7734629" target="_blank">ThemeForest</a>.</p>
+
+												</div>
+
+											</div>
+										</div>
+										<!-- TEXT WIDGET : end -->
+
+									</div>
+									<!-- GRID COLUMN : end -->
+
+									<!-- GRID COLUMN : begin -->
+									<div class="footer-widgets__grid-col lsvr-grid__col lsvr-grid__col--span-4 lsvr-grid__col--md-span-12">
+
+										<!-- IMAGE GRID WIDGET : begin -->
+										<div class="widget lsvr-image-grid-widget">
+											<div class="widget__inner">
+
+												<h3 class="widget__title">We Endorse These Brands</h3>
+												<div class="widget__content">
+
+													<div class="lsvr-images-widget__grid lsvr-grid lsvr-grid--4-cols lsvr-grid--sm-2-cols">
+
+														<div class="lsvr-grid__col">
+															<p><img src="images/brand_01.png" alt="Brand 1"></p>
+														</div>
+
+														<div class="lsvr-grid__col">
+															<p><img src="images/brand_02.png" alt="Brand 2"></p>
+														</div>
+
+														<div class="lsvr-grid__col">
+															<p><img src="images/brand_03.png" alt="Brand 3"></p>
+														</div>
+
+														<div class="lsvr-grid__col">
+															<p><img src="images/brand_04.png" alt="Brand 4"></p>
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+										<!-- IMAGE GRID WIDGET : end -->
+
+									</div>
+									<!-- GRID COLUMN : end -->
+
+								</div>
+								<!-- WIDGETS GRID : end -->
+
+							</div>
+						</div>
+					</div>
+					<!-- FOOTER WIDGETS : end -->
+
+					<!-- FOOTER BOTTOM : begin -->
+					<div class="footer-bottom">
+						<div class="lsvr-container">
+							<div class="footer-bottom__inner">
+
+								<!-- FOOTER MENU : begin -->
+								<nav class="footer-menu">
+									<ul class="footer-menu__list">
+
+										<li class="footer-menu__item">
+											<a href="index.html">Anasayfa</a>
+										</li>
+
+										<li class="footer-menu__item">
+											<a href="https://themeforest.net/item/beautyspot-html-template-for-beauty-salons/7734629" target="_blank">Galeri</a>
+										</li>
+
+										<li class="footer-menu__item">
+											<a href="http://docs.lsvr.sk/beautyspot.html/" target="_blank">Ekibimiz</a>
+										</li>
+
+										<li class="footer-menu__item">
+											<a href="demo-credits.html">Blog</a>
+										</li>
+
+										<li class="footer-menu__item">
+											<a href="../beautyspot.rtl/index.html">İletişim</a>
+										</li>
+
+									</ul>
+								</nav>
+								<!-- FOOTER MENU : end -->
+
+								<!-- FOOTER TEXT : begin -->
+								<div class="footer-text">
+									<p>
+										<a href="https://themeforest.net/item/beautyspot-html-template-for-beauty-salons/7734629" target="_blank">MakyajTakvimi</a> - Güzelliğin internet adresi
+									</p>
+								</div>
+								<!-- FOOTER TEXT : end -->
+
+							</div>
+						</div>
+					</div>
+					<!-- FOOTER BOTTOM : end -->
+
+				</div>
+			</footer>
+			<!-- FOOTER : end -->
+
+		</div>
+		<!-- WRAPPER : end -->
+
+		<!-- SCRIPTS : begin -->
+		<script src="assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
+		<script src="assets/js/third-party-scripts.min.js" type="text/javascript"></script>
+		<script src="assets/js/scripts.js" type="text/javascript"></script>
+		<!-- SCRIPTS : end -->
+
+	</body>
 </html>
