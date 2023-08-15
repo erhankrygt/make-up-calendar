@@ -1,0 +1,163 @@
+// Container
+.lsvr-container { box-sizing: border-box; margin: 0 auto; padding: 0 30px; width: 100%; max-width: 1400px; }
+.lsvr-container .lsvr-container { padding: 0; }
+
+// Grid
+.lsvr-grid { display: flex; flex-wrap: wrap; box-sizing: border-box; margin-left: -15px; margin-right: -15px; }
+.lsvr-grid--gapless { margin-left: 0; margin-right: 0; }
+.lsvr-grid--masonry { align-items: flex-start; }
+
+// Grid column
+.lsvr-grid__col { box-sizing: border-box; padding-left: 15px; padding-right: 15px; }
+.lsvr-grid--gapless > .lsvr-grid__col { padding-left: 0; padding-right: 0; }
+.lsvr-grid--1-cols > .lsvr-grid__col { width: 100%; }
+.lsvr-grid--2-cols > .lsvr-grid__col { width: 50%; }
+.lsvr-grid--3-cols > .lsvr-grid__col { width: 33.3333%; }
+.lsvr-grid--4-cols > .lsvr-grid__col { width: 25%; }
+.lsvr-grid--5-cols > .lsvr-grid__col { width: 20%; }
+
+	// Grid column span modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--span-#{$i} { flex-grow: $i; flex-basis: 8.333% * $i; }
+	}
+
+	// Grid column order modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--order-#{$i} { order: $i; }
+	}
+
+// Extra large breakpoint
+@media ( max-width: 1399px ) {
+
+	// Grid column
+	.lsvr-grid--xl-1-cols > .lsvr-grid__col { width: 100%; }
+	.lsvr-grid--xl-2-cols > .lsvr-grid__col { width: 50%; }
+	.lsvr-grid--xl-3-cols > .lsvr-grid__col { width: 33.3333%; }
+	.lsvr-grid--xl-4-cols > .lsvr-grid__col { width: 25%; }
+	.lsvr-grid--xl-5-cols > .lsvr-grid__col { width: 20%; }
+
+	// Grid column span modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--xl-span-#{$i} { flex-grow: $i; flex-basis: 8.333% * $i; }
+	}
+
+	// Grid column order modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--xl-order-#{$i} { order: $i; }
+	}
+
+}
+
+// Large breakpoint
+@media ( max-width: 1199px ) {
+
+	// Grid column
+	.lsvr-grid--lg-1-cols > .lsvr-grid__col { width: 100%; }
+	.lsvr-grid--lg-2-cols > .lsvr-grid__col { width: 50%; }
+	.lsvr-grid--lg-3-cols > .lsvr-grid__col { width: 33.3333%; }
+	.lsvr-grid--lg-4-cols > .lsvr-grid__col { width: 25%; }
+	.lsvr-grid--lg-5-cols > .lsvr-grid__col { width: 20%; }
+
+	// Grid column span modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--lg-span-#{$i} { flex-grow: $i; flex-basis: 8.333% * $i; }
+	}
+
+	// Grid column order modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--lg-order-#{$i} { order: $i; }
+	}
+
+}
+
+// Medium breakpoint
+@media ( max-width: 991px ) {
+
+	// Grid column
+	.lsvr-grid--md-1-cols > .lsvr-grid__col { width: 100%; }
+	.lsvr-grid--md-2-cols > .lsvr-grid__col { width: 50%; }
+	.lsvr-grid--md-3-cols > .lsvr-grid__col { width: 33.3333%; }
+	.lsvr-grid--md-4-cols > .lsvr-grid__col { width: 25%; }
+	.lsvr-grid--md-5-cols > .lsvr-grid__col { width: 20%; }
+
+	// Grid column span modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--md-span-#{$i} { flex-grow: $i; flex-basis: 8.333% * $i; }
+	}
+
+	// Grid column order modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--md-order-#{$i} { order: $i; }
+	}
+
+}
+
+// Small breakpoint
+@media ( max-width: 767px ) {
+
+	// Grid column
+	.lsvr-grid--sm-1-cols > .lsvr-grid__col { width: 100%; }
+	.lsvr-grid--sm-2-cols > .lsvr-grid__col { width: 50%; }
+	.lsvr-grid--sm-3-cols > .lsvr-grid__col { width: 33.3333%; }
+	.lsvr-grid--sm-4-cols > .lsvr-grid__col { width: 25%; }
+	.lsvr-grid--sm-5-cols > .lsvr-grid__col { width: 20%; }
+
+	// Grid column span modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--sm-span-#{$i} { flex-grow: $i; flex-basis: 8.333% * $i; }
+	}
+
+	// Grid column order modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--sm-order-#{$i} { order: $i; }
+	}
+
+}
+
+// Extra small breakpoint
+@media ( max-width: 480px ) {
+
+	// Default reset
+	.lsvr-grid { display: block; margin-left: 0; margin-right: 0; }
+	.lsvr-grid > .lsvr-grid__col { padding-left: 0; padding-right: 0; width: 100%; }
+
+	// Grid
+	.lsvr-grid--xs,
+	.lsvr-grid--xs-1-cols,
+	.lsvr-grid--xs-2-cols,
+	.lsvr-grid--xs-3-cols,
+	.lsvr-grid--xs-4-cols,
+	.lsvr-grid--xs-5-cols { display: flex; }
+
+	.lsvr-grid--xs:not( .lsvr-grid--gapless ),
+	.lsvr-grid--xs-1-cols:not( .lsvr-grid--gapless ),
+	.lsvr-grid--xs-2-cols:not( .lsvr-grid--gapless ),
+	.lsvr-grid--xs-3-cols:not( .lsvr-grid--gapless ),
+	.lsvr-grid--xs-4-cols:not( .lsvr-grid--gapless ),
+	.lsvr-grid--xs-5-cols:not( .lsvr-grid--gapless ) { margin-left: -15px; margin-right: -15px; }
+
+	// Grid column
+	.lsvr-grid--xs-1-cols > .lsvr-grid__col { width: 100%; }
+	.lsvr-grid--xs-2-cols > .lsvr-grid__col { width: 50%; }
+	.lsvr-grid--xs-3-cols > .lsvr-grid__col { width: 33.3333%; }
+	.lsvr-grid--xs-4-cols > .lsvr-grid__col { width: 25%; }
+	.lsvr-grid--xs-5-cols > .lsvr-grid__col { width: 20%; }
+
+	.lsvr-grid--xs:not( .lsvr-grid--gapless ) > .lsvr-grid__col,
+	.lsvr-grid--xs-1-cols:not( .lsvr-grid--gapless ) > .lsvr-grid__col,
+	.lsvr-grid--xs-2-cols:not( .lsvr-grid--gapless ) > .lsvr-grid__col,
+	.lsvr-grid--xs-3-cols:not( .lsvr-grid--gapless ) > .lsvr-grid__col,
+	.lsvr-grid--xs-4-cols:not( .lsvr-grid--gapless ) > .lsvr-grid__col,
+	.lsvr-grid--xs-5-cols:not( .lsvr-grid--gapless ) > .lsvr-grid__col { padding-left: 15px; padding-right: 15px; }
+
+	// Grid column span modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--xs-span-#{$i} { flex-grow: $i; flex-basis: 8.333% * $i; }
+	}
+
+	// Grid column order modifiers
+	@for $i from 1 through 12 {
+		.lsvr-grid__col--xs-order-#{$i} { order: $i; }
+	}
+
+}

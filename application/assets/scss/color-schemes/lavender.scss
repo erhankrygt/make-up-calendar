@@ -1,0 +1,800 @@
+/* -----------------------------------------------------------------------------
+
+	TABLE OF CONTENTS
+
+	1. General
+	2. Components
+	3. Header
+	4. Core
+	5. Sidebar
+	6. Footer
+	7. Elements
+	8. Responsive
+
+----------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+
+    1. GENERAL
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+		COLORS
+	-------------------------------------------------------------------------- */
+
+	// Accent
+	$accent1: #e606ff; // primary accent color
+	$accent2: #2094d7; // secondary accent color
+	$accent3: #ffde7a; // minor accents
+
+	// General
+	$body-bg: #FFF;
+	$body-font: #585858;
+	$body-link: $accent1;
+	$content-bg: #FFF;
+	$info-font: #265e88;
+	$info-bg: #e1edf9;
+	$warning-font: #d40041;
+	$warning-bg: #ffdfe0;
+	$success-font: #367b30;
+	$success-bg: #d4fbd3;
+	$notification-font: #ac6819;
+	$notification-bg: #fff4cf;
+
+	// Gray
+	$xx-soft-gray: #f5f5f5;
+	$x-soft-gray: #e1e7ec; // very soft backgrounds
+	$soft-gray: #ccd5db; // soft background
+	$gray: #8a949b; // lighter texts
+	$dark-gray: #333; // titles
+	$x-dark-gray: #1a1a1a; // titles, strong text on bright bg
+
+	// Header
+	$header-font: #FFF;
+	$header-submenu-bg: #FFF;
+	$header-submenu-font: #3f3f3f;
+
+	// Footer
+	$footer-widgets-font: #FFF;
+	$footer-widgets-link: #FFF;
+	$footer-widgets-bg: #222;
+	$footer-widgets-title: #FFF;
+	$footer-widgets-font: #FFF;
+
+	/* -------------------------------------------------------------------------
+		MIXINS
+	-------------------------------------------------------------------------- */
+
+	// Input placeholder
+	@mixin input-placeholder( $color ) {
+		&::-webkit-input-placeholder { color: $color; }
+		&:-moz-placeholder { color: $color; }
+		&::-moz-placeholder { color: $color; }
+		&:-ms-input-placeholder { color: $color; }
+	}
+
+	// Link decor
+	@mixin link-decor ( $init : 0, $hover : 2px, $active : 0, $color : $accent1 ) {
+		box-shadow: 0 $init 0 0 $color;
+		&:hover { box-shadow: 0 $hover 0 0 $color; }
+		&:active { box-shadow: 0 $active 0 0 $color; }
+	}
+	@mixin link-decor-none {
+		box-shadow: none;
+		&:hover { box-shadow: none; }
+		&:active { box-shadow: none; }
+	}
+
+	// Section header decor
+	@mixin section-header-decor {
+		&:before { background-color: $accent1; background-image: linear-gradient( to bottom, transparent, rgba( $accent2, 0.4 ) ); }
+	}
+
+	/* -------------------------------------------------------------------------
+        TYPOGRAPHY
+	------------------------------------------------------------------------- */
+
+	body { color: $body-font; background-color: $body-bg; }
+	a { color: $body-link; }
+	a:hover { border-color: $body-link; }
+	abbr { border-color: $body-font; }
+	button { color: $body-font; }
+	code { border-color: $x-soft-gray; }
+	pre { border-color: $x-soft-gray; }
+
+	// Headings
+	h1, h2, h3, h4, h5, h6 { color: $dark-gray; }
+
+	// Definition list
+	dt { color: $dark-gray; }
+
+	// Table
+	table thead th { color: $body-font; background-color: $soft-gray; }
+	table tbody > tr:nth-child(even) { background-color: $xx-soft-gray; }
+
+	/* -------------------------------------------------------------------------
+		FORMS
+	------------------------------------------------------------------------- */
+
+	label { color: $dark-gray; }
+	input, select, textarea { color: $body-font; background-color: $xx-soft-gray;
+		@include input-placeholder( rgba( $body-font, 0.8 ) );
+	}
+
+
+/* -----------------------------------------------------------------------------
+
+	2. COMPONENTS
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+        QUANTITY FIELD
+    ------------------------------------------------------------------------- */
+
+    .quantity-field__btn { color: #FFF; background-color: $accent2; }
+
+	/* -------------------------------------------------------------------------
+        SEARCH FORM
+    ------------------------------------------------------------------------- */
+
+    .search-form__button { color: $accent1; }
+
+
+/* -----------------------------------------------------------------------------
+
+	3. HEADER
+
+----------------------------------------------------------------------------- */
+
+#header { background-color: $accent2; }
+.header__inner { background-color: rgba( $accent2, .7 ); background-image: linear-gradient( to bottom, rgba( $accent1, .85 ), rgba( $accent2, .6 ) ); }
+
+	/* -------------------------------------------------------------------------
+		HEADER BRANDING
+	------------------------------------------------------------------------- */
+
+	.header-branding { color: $header-font; }
+
+		// Header title and tagline
+		.header-title__link { @include link-decor( 0, 2px, 0, $header-font ); color: $header-font; }
+		.header-tagline { color: rgba( #FFF, 0.9 ); }
+
+	/* -------------------------------------------------------------------------
+		HEADER LANGUAGES
+	------------------------------------------------------------------------- */
+
+	.header-languages__toggle { color: #FFF; border-color: rgba( #FFF, 0.8 ); }
+	.header-languages__toggle:hover { box-shadow: 0 0 0 1px rgba( #FFF, 0.8 ); }
+	.header-languages__toggle:active { box-shadow: none; }
+	.header-languages__list { box-shadow: 5px 5px 5px 0 rgba( #000, 0.1 ); background-color: #FFF; }
+	.header-languages__list:before { border-bottom-color: #FFF; }
+	.header-languages__item-link { color: $body-font; }
+	.header-languages__item-link:hover { color: $accent1; }
+	.header-languages__item-link:active { color: $body-font; }
+
+	/* -------------------------------------------------------------------------
+		HEADER MENU
+	------------------------------------------------------------------------- */
+
+	@media ( min-width: 1200px ) {
+
+		// Level 1
+		.header-menu__list > .header-menu__item--has-children:before { color: $header-font; }
+		.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link { color: $header-font; }
+		.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link:before { background-color: rgba( #FFF, 0.25 ); }
+		.header-menu__list > .header-menu__item--hover > .header-menu__item-link-wrapper > .header-menu__item-link:before,
+		.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link:hover:before { background-color: #FFF; }
+		.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link:active:before { background-color: rgba( #FFF, 0.5 ); }
+		.header-menu__list > .header-menu__item--current > .header-menu__item-link-wrapper > .header-menu__item-link:before { background-color: #FFF; }
+
+		// Level 2
+		.header-menu__list > .header-menu__item > .header-menu__submenu { box-shadow: 0 2px 2px rgba( 0, 0, 0, 0.15 ); background-color: #FFF; }
+		.header-menu__list > .header-menu__item > .header-menu__submenu:before { border-right-color: #FFF; border-left-color: #FFF; }
+		.header-menu__submenu .header-menu__item-link { @include link-decor( 0, 2px, 0, $dark-gray ); color: $dark-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		HEADER SEARCH
+	------------------------------------------------------------------------- */
+
+	.header-search__toggle { color: #FFF; border-color: rgba( #FFF, 0.8 ); }
+	.header-search__toggle:hover { box-shadow: 0 0 0 1px rgba( #FFF, 0.8 ); }
+	.header-search__toggle:active { box-shadow: none; }
+	.header-search__form:before { border-bottom-color: #FFF; }
+	.header-search .search-form__input { box-shadow: 5px 5px 5px 0 rgba( #000, 0.1 ); background-color: #FFF; }
+
+	/* -------------------------------------------------------------------------
+		HEADER PANEL
+	------------------------------------------------------------------------- */
+
+	.header-panel { color: $header-font; background-color: rgba( #FFF, 0.08 ); }
+	.header-panel__toggle { color: #FFF; background-color: $accent1; }
+	.header-panel__toggle:hover { box-shadow: 0 0 0 1px $accent1; }
+	.header-panel__toggle:active { box-shadow: none; }
+
+		// Header CTA
+		.header-cta__button { color: $dark-gray; background-color: $accent3; }
+		.header-cta__button:hover { box-shadow: 0 0 0 1px $accent3; }
+		.header-cta__button:active { box-shadow: none; }
+
+		// Header contact
+		.header-contact a { @include link-decor( 0, 1px, 0, #FFF ); color: $header-font; }
+		.header-contact dt { color: $header-font; }
+
+		// Header panel bottom
+		.header-social__item-link { color: #FFF; background-color: rgba( #FFF, 0.25 ); }
+		.header-social__item-link:hover { box-shadow: 0 0 0 1px rgba( #FFF, 0.25 ); }
+		.header-social__item-link:active { box-shadow: none; }
+		.header-panel__bottom-decor:after { background-color: rgba( #FFF, 0.25 ); }
+		.header-cart__button { color: $accent2; background-color: #FFF; }
+		.header-cart__button:hover { box-shadow:  0 0 0 1px #FFF; }
+		.header-cart__button:active { box-shadow: none; }
+		.header-cart__button-info { color: #FFF; background-color: $accent1; }
+
+
+/* -----------------------------------------------------------------------------
+
+	4. CORE
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+		PAGE HEADER
+	------------------------------------------------------------------------- */
+
+	.page-header__subtitle { color: $gray; }
+	.page-header__portrait-inner { background-color: $accent1; background-image: linear-gradient( to bottom, rgba( $accent2, .7 ), transparent ); }
+
+		// Breadcrumbs
+		.breadcrumbs__link { @include link-decor( 0, 1px, 0, $gray ); color: $gray; }
+		.breadcrumbs__item:before { color: $gray; }
+
+	/* -------------------------------------------------------------------------
+		POST COMMON COMPONENTS
+	------------------------------------------------------------------------- */
+
+	// Pagination
+	.pagination__item--current { color: $body-font; background-color: $x-soft-gray; }
+	.pagination__item--dots { color: $gray; }
+	.pagination__item--prev .pagination__item-link,
+	.pagination__item--next .pagination__item-link { color: $gray; }
+
+	// Post archive categories
+	.post-archive-categories { color: $dark-gray; border-color: $x-soft-gray; }
+	.post-archive-categories__item-link { color: $gray; @include link-decor; }
+
+	// Post navigation
+	.post-navigation { border-color: $x-soft-gray; }
+	.post-navigation__title-link { color: $gray; @include link-decor( 0, 2px, 0, $soft-gray ); }
+	.post-navigation__link { @include link-decor; }
+
+	/* -------------------------------------------------------------------------
+		BLOG / NEWS
+	------------------------------------------------------------------------- */
+
+	// General
+	.blog-post-archive,
+	.blog-post-single {
+		.sticky { border-color: $accent3; }
+		.post__title-link { @include link-decor; color: $dark-gray; }
+		.post__meta { color: $gray; }
+		.post__meta-author-link,
+		.post__meta .post__meta-link { color: $gray; @include link-decor( 1px, 2px, 1px, $soft-gray ); }
+		.post__permalink-link { @include link-decor( 1px, 2px, 1px, $accent1 ); }
+	}
+
+	// Archive page
+	.blog-post-archive {
+		.post { background-color: #FFF; border-color: $x-soft-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		GALLERIES
+	------------------------------------------------------------------------- */
+
+	// Archive page
+	.gallery-post-archive {
+		.post { background-color: $dark-gray; }
+		.post__inner { background-image: linear-gradient( to bottom, transparent, rgba( #000, 0.85 ) );  }
+		.post:hover .post__bg { background-color: rgba( #000, 0.4 ); }
+		.post:active .post__bg { background-color: rgba( #000, 0.3 ); }
+		.post__title-link { color: #FFF; }
+		.post:hover .post__title-link,
+		.post__title-link:hover { box-shadow: 0 2px 0 0 $accent1; }
+		.post .post__title-link:active { box-shadow: 0 0 0 0 $accent1; }
+		.post__meta { color: $soft-gray; border-color: rgba( #FFF, 0.1 ); }
+		.post__term-link { color: $soft-gray; @include link-decor( 1px, 2px, 1px, $soft-gray ); }
+		.post__meta-images { color: $gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		PEOPLE
+	------------------------------------------------------------------------- */
+
+	// General
+	.person-post-page {
+		.post__contact-item-icon { color: $accent1; }
+		.post__contact-item > a { @include link-decor; }
+		.post__social-link { color: #FFF; background-color: $soft-gray; }
+		.post__social-link:hover { background-color: $accent1; }
+		.post__social-link:active { background-color: rgba( $accent1, 0.8 ); }
+	}
+
+	// Archive page
+	.person-post-archive {
+		.post { background-color: #FFF; border-color: $x-soft-gray; }
+		.post__thumbnail-link { background-color: $accent1; background-image: linear-gradient( to bottom, rgba( $accent2, .7 ), transparent ); }
+		.post__title-link { color: $dark-gray; @include link-decor; }
+		.post__subtitle { color: $gray; }
+	}
+
+	// Post single
+	.person-post-single {
+		.post__thumbnail { border-color: $accent1; }
+		.post__contact { border-color: $x-soft-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		PRODUCTS
+	------------------------------------------------------------------------- */
+
+	// Archive page
+	.product-post-archive {
+		.post { background-color: #FFF; border-color: $x-soft-gray; }
+		.post__title-link { @include link-decor; color: $dark-gray; }
+	}
+
+	// Post single
+	.product-post-single {
+		.post__form { border-color: $x-soft-gray; }
+		.post__stock--in-stock { color: $success-font; background-color: $success-bg; }
+		.post__stock--on-order { color: $notification-font; background-color: $notification-bg; }
+		.post__stock--unavailable { color: $warning-font; background-color: $warning-bg; }
+		.post__price-current { color: $accent1; }
+		.post__content { border-color: $x-soft-gray; }
+	}
+
+	// Order (cart & checkout)
+	.product-post-order {
+		.product-cart__item { border-color: $x-soft-gray; }
+		.product-cart__item-title-link { @include link-decor; }
+		.product-cart__item-status--in-stock { color: $success-font; background-color: $success-bg; }
+		.product-cart__item-status--on-order { color: $notification-font; background-color: $notification-bg; }
+		.product-cart__item-status--unavailable { color: $warning-font; background-color: $warning-bg; }
+		.product-cart__item-remove-btn { color: $accent1; border-color: $accent1; }
+		.product-cart__summary { border-color: $x-soft-gray; }
+		.product-cart__total-label { color: $gray; }
+		.product-cart__total-price { color: $dark-gray; }
+		.product-order__footer { border-color: $x-soft-gray; }
+		.product-order__footer-back-link { @include link-decor; color: $gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		SERVICES
+	------------------------------------------------------------------------- */
+
+	// Archive page
+	.service-post-archive {
+		.post { background-color: #FFF; border-color: $x-soft-gray; }
+		.post__icon { color: #FFF; background-color: $accent1; }
+		.post__title-link { color: $dark-gray; @include link-decor; }
+		.post__meta { color: $gray; }
+		.post__meta .post__term-link { color: $gray; @include link-decor( 1px, 2px, 1px, $soft-gray ); }
+		.post__permalink-link { @include link-decor( 1px, 2px, 1px, $accent1 ); }
+	}
+
+	/* -------------------------------------------------------------------------
+		TESTIMONIALS
+	------------------------------------------------------------------------- */
+
+	// General
+	.testimonial-post-page {
+		.post__quote { color: $body-font; }
+		.post__thumbnail-link { border-color: $accent1; }
+		.post__thumbnail-link:hover { box-shadow: 0 0 0 1px $accent1;  }
+		.post__thumbnail-link:active { box-shadow: none;  }
+		.post__title,
+		.post__title-link { color: $dark-gray; }
+		.post__title-link { @include link-decor; }
+		.post__title-description { color: $gray; }
+	}
+
+	// Archive page
+	.testimonial-post-archive {
+		.post { background-color: #FFF; border-color: $x-soft-gray; }
+	}
+
+	// Post single
+	.testimonial-post-single {
+		.post__thumbnail > img { border-color: $accent1; }
+	}
+
+	/* -------------------------------------------------------------------------
+		SEARCH RESULTS PAGE
+	------------------------------------------------------------------------- */
+
+	.search-results-page__item { border-color: $x-soft-gray; }
+	.search-results-page__item-type { color: $gray; }
+	.search-results-page__item-title-link { @include link-decor( 0, 2px, 0, $accent1 ); }
+
+	/* -------------------------------------------------------------------------
+		ERROR 404 PAGE
+	------------------------------------------------------------------------- */
+
+	.error-404-page__title { color: #e1edf9; }
+	.error-404-page__button-link { color: $dark-gray; @include link-decor( 1px, 2px, 1px, $accent1 ); }
+
+
+/* -----------------------------------------------------------------------------
+
+    5. SIDEBAR
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+		WIDGETS
+	------------------------------------------------------------------------- */
+
+	.widget__title { color: $gray; border-color: $x-soft-gray; }
+	.widget__more { border-color: $xx-soft-gray; }
+	.widget__more-link { color: $gray; box-shadow: unset; @include link-decor( 0, 1px, 0, $gray ); }
+
+	// LSVR Featured Post
+	.lsvr-post-featured-widget .widget__content { border-color: $x-soft-gray; background-color: #FFF; }
+	.lsvr-post-featured-widget__content-inner { border-color: $x-soft-gray; }
+	.lsvr-post-featured-widget__title-link { color: $dark-gray; @include link-decor; }
+	.lsvr-post-featured-widget__date,
+	.lsvr-post-featured-widget__category { color: $gray; }
+	.lsvr-post-featured-widget__category-link { color: $gray; @include link-decor( 1px, 2px, 1px, $soft-gray ); }
+
+	// LSVR Featured Product
+	.lsvr-product-featured-widget .widget__content { border-color: $x-soft-gray; background-color: #FFF; }
+	.lsvr-product-featured-widget__title-link { color: $dark-gray; @include link-decor; }
+
+	// LSVR Featured Testimonial
+	.lsvr-testimonial-featured-widget__content { border-color: $x-soft-gray; }
+	.lsvr-testimonial-featured-widget__thumb-link { border-color: $accent1; }
+	.lsvr-testimonial-featured-widget__thumb-link:hover { box-shadow: 0 0 0 1px $accent1; }
+	.lsvr-testimonial-featured-widget__thumb-link:active { box-shadow: none; }
+	.lsvr-testimonial-featured-widget__author-link { color: $body-font; @include link-decor; }
+	.lsvr-testimonial-featured-widget__author-description { color: $gray; }
+
+	// LSVR Galleries
+	.lsvr-gallery-list-widget__item { border-color: $xx-soft-gray; }
+	.lsvr-gallery-list-widget__item-title-link { color: $dark-gray; @include link-decor; }
+	.lsvr-gallery-list-widget__item-date,
+	.lsvr-gallery-list-widget__item-count { color: $gray; }
+
+	// LSVR People
+	.lsvr-person-list-widget__item { border-color: $xx-soft-gray; }
+	.lsvr-person-list-widget__item-thumb-link { background-color: $accent1; background-image: linear-gradient( to bottom, rgba( $accent2, .7 ), transparent ); }
+	.lsvr-person-list-widget__item-title-link { color: $dark-gray; @include link-decor; }
+	.lsvr-person-list-widget__item-subtitle { color: $gray; }
+	.lsvr-person-list-widget__item-social-link { color: #FFF; background-color: $soft-gray; }
+	.lsvr-person-list-widget__item-social-link:hover { background-color: $accent1; }
+	.lsvr-person-list-widget__item-social-link:active { background-color: rgba( $accent1, 0.8 ); }
+
+	// LSVR Posts
+	.lsvr-post-list-widget__item { border-color: $xx-soft-gray; }
+	.lsvr-post-list-widget__item-title-link { color: $dark-gray; @include link-decor; }
+	.lsvr-post-list-widget__item-date,
+	.lsvr-post-list-widget__item-category { color: $gray; }
+	.lsvr-post-list-widget__item-category-link { color: $gray; @include link-decor( 1px, 2px, 1px, $soft-gray); }
+
+	// LSVR Product List
+	.lsvr-product-list-widget__item { border-color: $xx-soft-gray; }
+	.lsvr-product-list-widget__item-title-link { @include link-decor; color: $dark-gray; }
+	.lsvr-product-list-widget__total { border-color: $xx-soft-gray; }
+
+	// LSVR Services
+	.lsvr-service-list-widget__item-icon { color: $accent1; }
+	.lsvr-service-list-widget__item-link { color: $dark-gray; @include link-decor; }
+	.lsvr-service-list-widget__item--current { background-color: $accent1;
+		.lsvr-service-list-widget__item-icon,
+		.lsvr-service-list-widget__item-link { color: #FFF; @include link-decor( 0, 2px, 0, #FFF ); }
+	}
+
+
+/* -----------------------------------------------------------------------------
+
+	6. FOOTER
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+        FOOTER WIDGETS
+    ------------------------------------------------------------------------- */
+
+    .footer-widgets { color: $footer-widgets-font; background-color: $footer-widgets-bg; }
+	.footer-widgets a { color: $footer-widgets-link; }
+	.footer-widgets__inner { background-color: rgba( $footer-widgets-bg, .95 ); }
+	.footer-widgets .widget__title { color: $footer-widgets-title; }
+
+	/* -------------------------------------------------------------------------
+        FOOTER BOTTOM
+    ------------------------------------------------------------------------- */
+
+    .footer-bottom__inner { border-color: $x-soft-gray; }
+    .footer-bottom a { @include link-decor; }
+
+
+/* -----------------------------------------------------------------------------
+
+    7. ELEMENTS
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+		LSVR ACCORDION
+	------------------------------------------------------------------------- */
+
+	.lsvr-accordion__item { border-color: $x-soft-gray; background-color: #FFF; }
+	.lsvr-accordion__item-header:before { color: $accent1; }
+	.lsvr-accordion__item--expanded .lsvr-accordion__item-header { background-color: $xx-soft-gray; }
+	.lsvr-accordion__item-content-wrapper { border-color: $x-soft-gray; }
+	.lsvr-accordion__item-footer-permalink-link { color: $gray; @include link-decor( 1px, 2px, 1px, $soft-gray ); }
+
+	/* -------------------------------------------------------------------------
+        LSVR ALERT MESSAGE
+    ------------------------------------------------------------------------- */
+
+    .lsvr-alert-message { color: $info-font; background-color: $info-bg; }
+	.lsvr-alert-message--warning { color: $warning-font; background-color: $warning-bg; }
+	.lsvr-alert-message--success { color: $success-font; background-color: $success-bg; }
+	.lsvr-alert-message--notification { color: $notification-font; background-color: $notification-bg; }
+
+	/* -------------------------------------------------------------------------
+        LSVR BUTTON
+    ------------------------------------------------------------------------- */
+
+    .lsvr-button { color: #FFF; background-color: $accent1; }
+	.lsvr-button:hover { box-shadow: 0 0 0 1px $accent1; }
+	.lsvr-button:active { box-shadow: none; }
+	.lsvr-button--type-2 { color: $accent1; background-color: transparent; border-color: $accent1; }
+	.lsvr-button--type-2:hover { box-shadow: inset 0 0 0 1px $accent1; }
+	.lsvr-button--type-2:active { box-shadow: none; }
+
+	/* -------------------------------------------------------------------------
+		LSVR COUNTER
+	------------------------------------------------------------------------- */
+
+    .lsvr-counter__number { color: $accent1; }
+
+	/* -------------------------------------------------------------------------
+		LSVR CTA
+	------------------------------------------------------------------------- */
+
+	.lsvr-cta__text { color: $gray; }
+
+		// Has background color
+		.lsvr-cta--has-dark-background {
+			.lsvr-cta__inner { background-color: $xx-soft-gray; }
+		}
+
+	/* -------------------------------------------------------------------------
+		LSVR DEFINITION LIST
+	------------------------------------------------------------------------- */
+
+	.lsvr-definition-list__item-title,
+	.lsvr-definition-list__item-text { border-color: $x-soft-gray; }
+	.lsvr-definition-list__item-title-link,
+	.lsvr-definition-list__item-text-link { @include link-decor( 1px, 2px, 1px, $accent1 ); }
+
+	/* -------------------------------------------------------------------------
+		LSVR FAQ
+	------------------------------------------------------------------------- */
+
+	.lsvr-faq__header { @include section-header-decor; }
+	.lsvr-faq__title-link { @include link-decor; color: $dark-gray; }
+	.lsvr-faq__subtitle { color: $gray; }
+	.lsvr-faq__subtitle a { @include link-decor; }
+
+		// Has dark background
+		.lsvr-faq--has-dark-background {
+			.lsvr-faq__inner { background-color: $xx-soft-gray; }
+		}
+
+	/* -------------------------------------------------------------------------
+		LSVR FEATURE
+	------------------------------------------------------------------------- */
+
+    .lsvr-feature__icon { color: $accent1; }
+    .lsvr-feature__title-link { color: $dark-gray; @include link-decor; }
+    .lsvr-feature__more-link { @include link-decor( 1px, 2px, 1px ); }
+
+	/* -------------------------------------------------------------------------
+        LSVR FORM
+    ------------------------------------------------------------------------- */
+
+    .lsvr-form__field-input--error { border-color: $warning-font; }
+
+	/* -------------------------------------------------------------------------
+		LSVR INTRO
+	------------------------------------------------------------------------- */
+
+	.lsvr-intro__subtitle { color: $gray; }
+	.lsvr-intro__subtitle a { @include link-decor; }
+
+	/* -------------------------------------------------------------------------
+		LSVR POSTS
+	------------------------------------------------------------------------- */
+
+	.lsvr-posts__header { @include section-header-decor; }
+	.lsvr-posts__title-link { @include link-decor; color: $dark-gray; }
+	.lsvr-posts__subtitle { color: $gray; }
+	.lsvr-posts__subtitle a { @include link-decor; }
+	.lsvr-posts__post-title-link { @include link-decor; color: $dark-gray; }
+	.lsvr-posts__post-meta { color: $gray; }
+	.lsvr-posts__post-meta a { color: $gray; @include link-decor( 1px, 2px, 1px, $soft-gray ); }
+	.lsvr-posts__post-permalink-link { @include link-decor( 1px, 2px, 1px, $accent1 ); }
+
+		// Has dark background
+		.lsvr-posts--has-dark-background {
+			.lsvr-posts__inner { background-color: $xx-soft-gray; }
+		}
+
+	/* -------------------------------------------------------------------------
+		LSVR PRICING TABLE
+	------------------------------------------------------------------------- */
+
+    .lsvr-pricing-table { border-color: $x-soft-gray; }
+    .lsvr-pricing-table__title { color: #FFF; background-color: $accent2; }
+    .lsvr-pricing-table__price-value { color: $accent1; }
+    .lsvr-pricing-table__price-description { color: $gray; }
+    .lsvr-pricing-table__text { border-color: $x-soft-gray; }
+
+	/* -------------------------------------------------------------------------
+		LSVR PROGRESS BAR
+	------------------------------------------------------------------------- */
+
+    .lsvr-progress-bar__bar { background-color: $x-soft-gray; }
+    .lsvr-progress-bar__bar-inner { background-color: $accent1; background-image: linear-gradient( to right, rgba( $accent2, 0.6 ), transparent ); }
+
+	/* -------------------------------------------------------------------------
+		LSVR SERVICES
+	------------------------------------------------------------------------- */
+
+	.lsvr-services__header { @include section-header-decor; }
+	.lsvr-services__title-link { @include link-decor; color: $dark-gray; }
+	.lsvr-services__subtitle { color: $gray; }
+	.lsvr-services__subtitle a { @include link-decor; }
+	.lsvr-services__post-bg { color: #FFF; background-color: $dark-gray; }
+	.lsvr-services__item--has-thumbnail .lsvr-services__post-inner { background-color: rgba( #000, 0.6 ); }
+	.lsvr-services__post-icon { color: #FFF; }
+	.lsvr-services__post-title-link { color: #FFF; }
+	.lsvr-services__item:hover .lsvr-services__post-title-link { box-shadow: 0 2px 0 0 $accent1; }
+	.lsvr-services__item:active .lsvr-services__post-title-link { box-shadow: 0 0 0 0 $accent1; }
+	.lsvr-services__post-meta { color: $soft-gray; }
+	.lsvr-services__post-meta .post__term-link { color: $soft-gray; }
+	.lsvr-services__post-description { background-color: rgba( $accent1, 0.95 ); }
+
+		// Has background color
+		.lsvr-services--has-dark-background {
+			.lsvr-services__inner { background-color: $xx-soft-gray; }
+		}
+
+	/* -------------------------------------------------------------------------
+        LSVR SLIDE LIST
+    ------------------------------------------------------------------------- */
+
+    .lsvr-slide-list__item-content-inner { background-color: #FFF; }
+    .lsvr-slide-list__item-content-inner:before { background-color: #FFF; }
+    .lsvr-slide-list__item-text { color: $gray; }
+    .lsvr-slide-list__nav-button { color: #FFF; background-color: $accent1; }
+    .lsvr-slide-list__nav-button:hover { box-shadow: 0 0 0 1px $accent1; }
+
+	/* -------------------------------------------------------------------------
+        LSVR SEPARATOR
+    ------------------------------------------------------------------------- */
+
+    .lsvr-separator { border-color: $x-soft-gray; }
+
+	/* -------------------------------------------------------------------------
+        LSVR TABS
+    ------------------------------------------------------------------------- */
+
+	.lsvr-tabs { border-color: $x-soft-gray; }
+	.lsvr-tabs__header-item--active  .lsvr-tabs__header-item-link { color: $dark-gray; }
+	.lsvr-tabs__header-item-link { color: $gray; @include link-decor; }
+	.lsvr-tabs__content { border-color: $x-soft-gray; }
+
+	/* -------------------------------------------------------------------------
+		LSVR TESTIMONIALS
+	------------------------------------------------------------------------- */
+
+	.lsvr-testimonials__header { @include section-header-decor; }
+	.lsvr-testimonials__title-link { @include link-decor; color: $dark-gray; }
+	.lsvr-testimonials__subtitle { color: $gray; }
+	.lsvr-testimonials__subtitle a { @include link-decor; }
+	.lsvr-testimonials__post { border-color: $x-soft-gray; background-color: #FFF; }
+	.lsvr-testimonials__post-quote { color: $body-font; }
+	.lsvr-testimonials__post-thumbnail-link { border-color: $accent1; }
+	.lsvr-testimonials__post-thumbnail-link:hover { box-shadow: 0 0 0 1px $accent1;  }
+	.lsvr-testimonials__post-thumbnail-link:active { box-shadow: none;  }
+	.lsvr-testimonials__post-title { color: $dark-gray; }
+	.lsvr-testimonials__post-title-link { color: $dark-gray; @include link-decor; }
+	.lsvr-testimonials__post-title-description { color: $gray; }
+	.lsvr-testimonials__footer { border-color: $x-soft-gray; }
+
+		// Has dark background
+		.lsvr-testimonials--has-dark-background {
+			.lsvr-testimonials__inner { background-color: $xx-soft-gray; }
+		}
+
+	/* -------------------------------------------------------------------------
+		LSVR SIDEBAR
+	------------------------------------------------------------------------- */
+
+		// Has dark background
+		.lsvr-sidebar--has-dark-background {
+			.lsvr-sidebar__inner { background-color: $xx-soft-gray; }
+		}
+
+
+/* -----------------------------------------------------------------------------
+
+    8. RESPONSIVE
+
+----------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------
+        LARGE DEVICES
+    ------------------------------------------------------------------------- */
+
+    @media ( max-width: 1199px ) {
+
+		// Header
+
+			// Header languages
+			.header-languages__list { box-shadow: none; background-color: $dark-gray; }
+			.header-languages__item-link { color: #FFF; }
+
+			// Header menu
+			.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link { color: $header-font; }
+			.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link:before { background-color: rgba( #FFF, 0.25 ); }
+			.header-menu__list > .header-menu__item--hover > .header-menu__item-link-wrapper > .header-menu__item-link:before,
+			.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link:hover:before { background-color: #FFF; }
+			.header-menu__list > .header-menu__item > .header-menu__item-link-wrapper > .header-menu__item-link:active:before { background-color: rgba( #FFF, 0.5 ); }
+			.header-menu__list > .header-menu__item--active > .header-menu__item-link-wrapper > .header-menu__item-link:before,
+			.header-menu__list > .header-menu__item--current > .header-menu__item-link-wrapper > .header-menu__item-link:before { background-color: #FFF; }
+			.header-menu__submenu .header-menu__item-link { @include link-decor( 0, 2px, 0, $header-font ); color: $header-font; }
+			.header-menu__submenu-toggle { color: #FFF; border-color: rgba( #FFF, 0.25 ); }
+			.header-menu__submenu-toggle:hover,
+			.header-menu__submenu-toggle--active { border-color: #FFF; }
+			.header-menu__submenu-toggle:active { border-color: rgba( #FFF, 0.5 ); }
+
+			// Header panel
+    		.header-contact { border-color: rgba( #FFF, 0.25 ); }
+
+    		// Header mobile toggle
+			.header-mobile-toggle { color: #FFF; border-color: rgba( #FFF, 0.8 ); }
+			.header-mobile-toggle:hover { box-shadow: 0 0 0 1px rgba( #FFF, 0.8 ); }
+			.header-mobile-toggle:active { box-shadow: none; }
+
+	}
+
+	/* -------------------------------------------------------------------------
+        SMALL DEVICES
+    ------------------------------------------------------------------------- */
+
+    @media ( max-width: 767px ) {
+
+    	// Core
+
+			// Products
+			.product-post-single .post__form { border-color: $x-soft-gray; }
+
+	}
+
+	/* -------------------------------------------------------------------------
+        EXTRA SMALL DEVICES
+    ------------------------------------------------------------------------- */
+
+	@media ( max-width: 480px ) {
+
+		// Header
+		.header-panel__bottom { border-color: rgba( #FFF, 0.25 ); }
+
+	}
